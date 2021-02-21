@@ -4,12 +4,10 @@ import {useState} from "react";
 import Joi from "joi-browser";
 import {Button, Form} from "react-bootstrap";
 import Input from "./input";
+import SelectedInput from "./selectedInput";
 
 const useCustomForm = ({schema, doSubmit}) => {
-    const [data, setData] = useState({
-        username: "",
-        password: ""
-    });
+    const [data, setData] = useState({});
     const [errors, setErrors] = useState({});
     const validate = () => {
         const options = {abortEarly: false};
@@ -76,7 +74,14 @@ const useCustomForm = ({schema, doSubmit}) => {
         );
     };
 
-    return {data, errors, handleSubmit, handleChange, validate, renderButton, renderInput};
+    const renderSelections = (name, label, type, options ) => {
+        return(
+            <SelectedInput name={name} value={data[name]} type={type} label={label} options={options} onChange={handleChange}
+                            error={errors[name]}/>
+        );
+    };
+
+    return {data, errors, handleSubmit, handleChange, validate, renderButton, renderInput, renderSelections};
 
 }
 

@@ -77,7 +77,7 @@ const Movies = (props) => {
                 <LiGroup onHandleListItem={handleListItem} items={genres} selectedItem={selectedGenre}/>
             </div>
             <div className="col">
-                <Link to={`/movies/new`}><Button>New Movie</Button></Link>
+                <Link to="/movies/new" className="btn btn-primary" style={{marginBottom:20}}>New Movie</Link>
                 {totalCount === 0 ? <h1>There are no movies</h1> : <h1>There are {totalCount} movies available</h1>}
 
                 <MoviesTable movies={data} onLiked={handleLike} onDelete={handleDelete} onSort={handleSort} sortColumn={sortColumn}/>

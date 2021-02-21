@@ -2,34 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ace6955-f7db-4dc0-bbd2-0694c9459c0d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/LiGroup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/LikeHeart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Movies.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Pag.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/counters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/customForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/customers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/input.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/loginForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/movieDetails.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/movieForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/moviesTable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/navBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/notFound.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/registerForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/rentals.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/table.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/tableBody.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/tableHeader.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/paginate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/selectedInput.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Movies.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/customForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/customForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/movieForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/movieForm.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
