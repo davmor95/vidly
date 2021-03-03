@@ -1,9 +1,9 @@
 import Joi from "joi-browser";
 import useCustomForm from "./customForm";
 import {Form} from "react-bootstrap";
-import {getMovie, getMovies, saveMovie} from "../services/fakeMovieService";
+import {getMovie, getMovies, saveMovie} from "../services/movieService";
 import {useEffect, useState} from "react";
-import {getGenres} from "../services/fakeGenreService";
+import {getGenres} from "../services/genreService";
 
 export const MovieForm = (props) => {
 
@@ -28,38 +28,57 @@ export const MovieForm = (props) => {
     };
 
 
-    const doSubmit = () => {
+    const doSubmit = async () => {
         console.log('register submitted');
-        console.log(data);
-        saveMovie(data);
+        console.log('before save',data);
+        const body = {
+            title: data.title,
+            numberInStock: data.numberInStock,
+            dailyRentalRate: data.dailyRentalRate,
+            genre: {
+                name: data.genreId
+            }
+        }
+        console.log(body);
+        const {data: saved} = await saveMovie(data);
+        console.log('im saved', saved);
 
         props.history.push("/movies");
     };
 
     const {data, handleSubmit, renderButton, renderInput, renderSelections} = useCustomForm({schema, doSubmit});
-    useEffect(() => {
-        const genres1 = getGenres();
+    useEffect(async () => {
+        const {data: genres1} = await getGenres();
         setGenres(genres1);
 
         const movieId = props.match.params.id;
         if(movieId === "new") return;
 
-        const movie = getMovie(movieId);
-        console.log(movie);
-        if(!movie) return props.history.replace("/not-found");
+        try {
+            const {data:movie} = await getMovie(movieId);
+            console.log(movie);
+            setMovieData(mapToViewModel(movie));
 
-        setMovieData(mapToViewModel(movie));
+        } catch (ex) {
+            if(ex.response && ex.response.status === 500) {
+                props.history.replace("/not-found");
+            }
+
+        }
+
+
+
 
     }, []);
 
     const mapToViewModel = (movie) => {
-      return {
-          _id: movie._id,
-          title: movie.title,
-          genreId: movie.genre._id,
-          numberInStock: movie.numberInStock,
-          dailyRentalRate: movie.dailyRentalRate
-      };
+        return {
+            id: movie.id,
+            title: movie.title,
+            genreId: movie.genre.id,
+            numberInStock: movie.numberInStock,
+            dailyRentalRate: movie.dailyRentalRate
+        };
     };
     return (
 

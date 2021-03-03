@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ace6955-f7db-4dc0-bbd2-0694c9459c0d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/selectedInput.js" afterDir="false" />
+    <list default="true" id="0ace6955-f7db-4dc0-bbd2-0694c9459c0d" name="Default Changelist" comment="done with new movie form">
+      <change afterPath="$PROJECT_DIR$/src/components/logout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/authService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/genreService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/httpService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/logService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/movieService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/userService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/setupProxy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Movies.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Movies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/customForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/customForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/loginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/movieForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/movieForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/moviesTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/moviesTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/registerForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/registerForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/searchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/searchBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +59,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/services" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -54,8 +68,13 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/services" />
+    </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -93,7 +112,28 @@
       <workItem from="1613584034175" duration="8069000" />
       <workItem from="1613663822996" duration="8718000" />
       <workItem from="1613755308493" duration="8182000" />
+      <workItem from="1613931533297" duration="3789000" />
+      <workItem from="1614009639093" duration="1952000" />
+      <workItem from="1614051770553" duration="598000" />
+      <workItem from="1614101438474" duration="7471000" />
+      <workItem from="1614184377611" duration="5519000" />
+      <workItem from="1614218382676" duration="175000" />
+      <workItem from="1614273317778" duration="7678000" />
+      <workItem from="1614357866952" duration="3419000" />
+      <workItem from="1614370365970" duration="2748000" />
+      <workItem from="1614627359300" duration="3596000" />
+      <workItem from="1614704621061" duration="3060000" />
+      <workItem from="1614717171373" duration="5861000" />
+      <workItem from="1614786909509" duration="240000" />
     </task>
+    <task id="LOCAL-00001" summary="done with new movie form">
+      <created>1613931799961</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1613931799961</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,5 +150,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="done with new movie form" />
+    <option name="LAST_COMMIT_MESSAGE" value="done with new movie form" />
   </component>
 </project>

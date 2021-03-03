@@ -1,7 +1,8 @@
 import Joi from "joi-browser";
 import useCustomForm from "./customForm";
 import {Form} from "react-bootstrap";
-
+import * as userService from '../services/userService';
+import authService from "../services/authService";
 
 const RegisterForm = (props) => {
 
@@ -11,11 +12,25 @@ const RegisterForm = (props) => {
         personName: Joi.string().required().label('Name'),
 
     };
-    const doSubmit = () => {
-      console.log('register submitted');
+    const doSubmit = async () => {
+        console.log(data);
+        console.log('register submitted');
+        try {
+           const response = await userService.register(data);
+           console.log(response);
+           authService.loginWithJwt(response.headers['x-auth-token']);
+           window.location = '/';
+        } catch (ex) {
+            if(ex.response && ex.response.status === 400) {
+                console.log(ex.response.status)
+                const errors1 = {...errors};
+                errors1.username = ex.response.data;
+                alert(errors1.username);
+            }
+        }
     };
 
-    const {handleSubmit, renderButton, renderInput} = useCustomForm({schema, doSubmit});
+    const {data, errors, handleSubmit, renderButton, renderInput} = useCustomForm({schema, doSubmit});
 
     return (
         <div>

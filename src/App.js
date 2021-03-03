@@ -1,4 +1,3 @@
-
 import './App.css';
 import Movies from "./components/Movies";
 import NavBar from "./components/navBar";
@@ -8,36 +7,53 @@ import Rentals from "./components/rentals";
 import NotFound from "./components/notFound";
 import MovieDetails from "./components/movieDetails";
 import LoginForm from "./components/loginForm";
+import Logout from "./components/logout";
 import RegisterForm from "./components/registerForm";
 import MovieForm from "./components/movieForm";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {getMovies} from "./services/fakeMovieService";
 import {getGenres} from "./services/fakeGenreService";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import jwtDecode from 'jwt-decode';
+
 function App() {
 
+    const [user, setUser] = useState({});
 
-  return (
-      <div>
-          <NavBar/>
-          <main className="container">
-              <Switch>
-                  {/*<Route path="/movies/new" component={MovieForm}></Route>*/}
-                  <Route path="/movies/:id" component={MovieForm}></Route>
-                  <Route path="/register" component={RegisterForm}></Route>
-                  <Route path="/login" component={LoginForm}></Route>
-                  <Route path="/movies" component={Movies}></Route>
-                  <Route path="/customers" component={Customers}></Route>
-                  <Route path="/rentals" component={Rentals}></Route>
-                  <Route path="/not-found" component={NotFound}></Route>
-                  <Route path="/" exact component={Movies}></Route>
-                  <Redirect to="not-found"/>
-                  <Redirect from="/" exact to="/movies"/>
-              </Switch>
+    useEffect(() => {
+        try {
+            const jwt = localStorage.getItem("token");
+            const user1 = jwtDecode(jwt);
+            console.log(user1);
+            setUser(user1);
+        } catch (ex) {}
+    }, []);
 
-          </main>
-      </div>
+    return (
+        <div>
+            <ToastContainer/>
+            <NavBar user={user}/>
+            <main className="container">
+                <Switch>
+                    {/*<Route path="/movies/new" component={MovieForm}></Route>*/}
+                    <Route path="/movies/:id" component={MovieForm}></Route>
+                    <Route path="/register" component={RegisterForm}></Route>
+                    <Route path="/login" component={LoginForm}></Route>
+                    <Route path="/logout" component={Logout}></Route>
+                    <Route path="/movies" component={Movies}></Route>
+                    <Route path="/customers" component={Customers}></Route>
+                    <Route path="/rentals" component={Rentals}></Route>
+                    <Route path="/not-found" component={NotFound}></Route>
+                    <Route path="/" exact component={Movies}></Route>
+                    <Redirect to="not-found"/>
+                    <Redirect from="/" exact to="/movies"/>
+                </Switch>
 
-  );
+            </main>
+        </div>
+
+    );
 }
 
 export default App;

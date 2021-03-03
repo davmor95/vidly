@@ -6,7 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 import {BrowserRouter} from "react-router-dom";
+import logService from "./services/logService";
 
+
+logService.init();
 
 ReactDOM.render(
   <BrowserRouter>

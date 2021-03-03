@@ -4,28 +4,32 @@ import {func} from "prop-types";
 import Input from "./input";
 import Joi from 'joi-browser';
 import useCustomForm from "./customForm";
+import auth from "../services/authService";
 
 const LoginForm = (props) => {
-    let userData = {
-        username: "",
-        password: ""
-    }
 
     const schema = {
         username: Joi.string().required().label('Username'),
         password: Joi.string().required().label('Password'),
     };
 
-    const doSubmit = () => {
+    const doSubmit = async () => {
 
         console.log('submitted')
-        console.log(userData);
-
+        console.log(data);
+        try {
+            await auth.login(data.username, data.password);
+            window.location = '/';
+        } catch (ex) {
+            if(ex.response && ex.response.status === 401) {
+                const errors1 = {...errors};
+                errors1.username = ex.response.data;
+                alert(data.username + " does not exist!");
+            }
+        }
     };
 
     const {data, errors, handleSubmit, handleChange, validate, renderButton, renderInput} = useCustomForm({schema, doSubmit});
-    const {username, password} = data;
-    userData = {...userData, username: username, password: password}
     // console.log(userData);
     return (
         <div>
