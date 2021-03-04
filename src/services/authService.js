@@ -3,8 +3,6 @@ import jwtDecode from "jwt-decode";
 const authURL = "/auth";
 const tokenKey = "token";
 
-httpService.setJwt(getJwt());
-
 export const login = async (username, password) => {
     const {data: jwt} = await httpService.post(authURL, {username, password})
     localStorage.setItem(tokenKey, jwt.token);

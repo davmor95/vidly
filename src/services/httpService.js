@@ -5,6 +5,7 @@ import logService from "./logService";
 import authService from "./authService";
 import {func} from "prop-types";
 
+// axios.defaults.headers.common['Authorization'] = "Bearer " + authService.getJwt();
 
 axios.interceptors.response.use(null, error => {
     const expectedError = error.response && error.response.status >= 400 && error.response.status < 500;
@@ -17,14 +18,9 @@ axios.interceptors.response.use(null, error => {
     return Promise.reject(error);
 });
 
-function setJwt(jwt) {
-    axios.defaults.headers.common['Authorization'] = "Bearer " + jwt;
-}
-
 export default {
     get: axios.get,
     post: axios.post,
     put: axios.put,
-    delete: axios.delete,
-    setJwt
+    delete: axios.delete
 };

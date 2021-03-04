@@ -5,6 +5,7 @@ import TableHeader from "./tableHeader";
 import TableBody from "./tableBody";
 import TableCustom from "./table";
 import {Link} from "react-router-dom";
+import authService from "../services/authService";
 
 const MoviesTable = ({movies, onDelete, onLiked, onSort, sortColumn}) => {
 
@@ -18,11 +19,13 @@ const MoviesTable = ({movies, onDelete, onLiked, onSort, sortColumn}) => {
             <LikeHeart liked={movie.liked} onClick={() => onLiked(movie)}/>
             )},
         { key: 'delete', content: movie => (
-            <Button variant="danger" onClick={() => onDelete(movie)}>
+
+            <Button variant="danger" onClick={() => onDelete(movie)} disabled={!authService.getCurrentUser()}>
                 Delete
             </Button>
             )}
     ];
+
 
     return(
         <TableCustom columns={columns} data={movies} sortColumn={sortColumn} onSort={onSort}/>

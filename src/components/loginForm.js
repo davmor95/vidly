@@ -5,6 +5,7 @@ import Input from "./input";
 import Joi from 'joi-browser';
 import useCustomForm from "./customForm";
 import auth from "../services/authService";
+import {Redirect} from "react-router-dom";
 
 const LoginForm = (props) => {
 
@@ -19,7 +20,9 @@ const LoginForm = (props) => {
         console.log(data);
         try {
             await auth.login(data.username, data.password);
-            window.location = '/';
+            const {state} = props.location;
+            console.log(state);
+            window.location = state ? state.from.pathname : "/";
         } catch (ex) {
             if(ex.response && ex.response.status === 401) {
                 const errors1 = {...errors};
@@ -31,6 +34,7 @@ const LoginForm = (props) => {
 
     const {data, errors, handleSubmit, handleChange, validate, renderButton, renderInput} = useCustomForm({schema, doSubmit});
     // console.log(userData);
+    if(auth.getCurrentUser()) return <Redirect to="/"/>;
     return (
         <div>
             <h1>Login</h1>

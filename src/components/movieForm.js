@@ -48,6 +48,8 @@ export const MovieForm = (props) => {
 
     const {data, handleSubmit, renderButton, renderInput, renderSelections} = useCustomForm({schema, doSubmit});
     useEffect(async () => {
+
+
         const {data: genres1} = await getGenres();
         setGenres(genres1);
 
@@ -60,9 +62,12 @@ export const MovieForm = (props) => {
             setMovieData(mapToViewModel(movie));
 
         } catch (ex) {
-            if(ex.response && ex.response.status === 500) {
+            if (ex.response && ex.response.status === 500) {
                 props.history.replace("/not-found");
             }
+            // if (ex.response && ex.response.status === 401) {
+            //     props.history.replace("/login");
+            // }
 
         }
 

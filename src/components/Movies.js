@@ -14,9 +14,12 @@ import config from '../config.json';
 import {toast} from "react-toastify";
 import {getGenres} from "../services/genreService";
 import axios from "axios";
+import authService from "../services/authService";
 
+const activeToken = authService.getJwt();
 
 const Movies = (props) => {
+
     const [movies, setMovies] = useState([]);
     const [movieCount, setMovieCount] = useState(movies.length);
     const [currentPage, setCurrentPage] = useState(1);
@@ -25,7 +28,11 @@ const Movies = (props) => {
     const [selectedGenre, setSelectedGenre] = useState(null);
     const [sortColumn, setSortColumn] = useState({path: 'title', order: 'asc'});
     const [keyword, setKeyword] = useState("");
+
+
+
     useEffect(async () => {
+
         const abortCtrl = new AbortController();
         const opt = {signal: abortCtrl.signal};
         const {data} = await getGenres();
@@ -138,7 +145,7 @@ const Movies = (props) => {
                 <LiGroup onHandleListItem={handleListItem} items={genres} selectedItem={selectedGenre}/>
             </div>
             <div className="col">
-                <Link to="/movies/new" className="btn btn-primary" style={{marginBottom:20}}>New Movie</Link>
+                {activeToken && (<Link to="/movies/new" className="btn btn-primary" style={{marginBottom: 20}}>New Movie</Link>)}
 
                 {totalCount === 0 ? <h1>There are no movies</h1> : <h1>There are {totalCount} movies available</h1>}
                 <SearchBar keyword={keyword} onChange={handleSearch}/>

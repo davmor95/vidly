@@ -10,6 +10,7 @@ import logService from "./services/logService";
 
 
 logService.init();
+console.log(process.env);
 
 ReactDOM.render(
   <BrowserRouter>
